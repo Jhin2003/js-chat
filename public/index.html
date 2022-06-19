@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--css -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--googlefonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="title">JSCHAT</h1>
+    <div class="container">
+        <div class="screen join-screen active">
+            <h1>What name would you like to be called?</h1>
+            <form class="userform-input">
+                <input type="text" class="username-input" placeholder="Give yourself an epic name"><br>
+                <button type="submit" class="username-submit">Submit</button>
+            </form>
+        </div>
+        <div class="screen chat-screen">
+            <div class="left-side">
+                <div class="chat-container">
+                    <form class="chat-form">
+                        <input type="text" class="chat-input">
+                        <button type="submit" class="chat-submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
