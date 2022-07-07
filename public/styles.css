@@ -67,15 +67,17 @@ body {
     background-color: #1a1a1a;
 }
 
-.container>.screen.active {
+.screen.active {
     display: block;
 }
 
-.container>.screen {
+.screen {
     display: none;
 }
 
-.chat-container {
+
+
+.chat-ui {
     width: 896px;
     height: 740px;
     background-color: #f0eded;
