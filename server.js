@@ -1,5 +1,3 @@
-const { Console } = require('console');
-
 //modules
 const express = require('express'),
     app = express(),
@@ -23,11 +21,10 @@ io.on('connection', (socket) => {
     socket.on('name', (name) => {
         users[socket.id] = name;
         io.emit('users', users)
-        console.log(users)
+
         socket.on('disconnecting', () => {
-            delete users[socket.id]
+            delete users[socket.id];
             io.emit('users', users)
-            console.log(users)
         })
 
     })

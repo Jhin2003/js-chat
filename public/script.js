@@ -7,6 +7,7 @@ const userformInput = document.querySelector('.userform-input')
 const userNameInput = document.querySelector('.username-input')
 const joinScreen = document.querySelector('.join-screen')
 const chatScreen = document.querySelector('.chat-screen')
+const onlineUsers = document.querySelector('.chat-right-side')
 
 userformInput.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -19,16 +20,16 @@ userformInput.addEventListener('submit', (e) => {
         chatScreen.classList.add('active')
     }
     else {
-        alert('Invalid name')
+        alert('name must  atleast cointain 4 characthers')
     }
 })
 
 socket.on('chatMessage', (data) => {
-    appendMessage(data)
+
 })
 
 socket.on('users', (users) => {
-    console.log(users)
+    showOnlineUsers(users)
 })
 //function for appending the message
 function appendMessage(message) {
@@ -37,3 +38,21 @@ function appendMessage(message) {
     messageContainer.append(messageElement)
     console.log(messageContainer.innerText)
 }
+
+//function for showing online users
+function showOnlineUsers(message) {
+    //delete users that left
+    while (onlineUsers.hasChildNodes()) {
+        onlineUsers.removeChild(onlineUsers.firstChild);
+    }
+    //add users that joined
+    let onlineUsersList = Object.values(message)
+    onlineUsersList.forEach((user) => {
+        let displayOnlineUser = document.createElement('div')
+        displayOnlineUser.innerText = user
+        onlineUsers.append(displayOnlineUser)
+    });
+
+
+}
+
