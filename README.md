@@ -1,2 +1,2 @@
 # js-chat
-a stylish chat app
+A stylish chat app
